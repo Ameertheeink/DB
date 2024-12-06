@@ -1,3 +1,24 @@
+
+SELECT * FROM finance.expense;
+describe  finance.expense;
+alter table finance.expense add category varchar(45);
+INSERT INTO expense (expense_name, expense_amount, expense_date, category) VALUES
+('Groceries', 75.50, '2024-11-05', 'Food'),
+('Electricity Bill', 120.00, '2024-11-02', 'Utilities'),
+('Internet Bill', 50.00, '2024-11-03', 'Utilities'),
+('Dining Out', 35.75, '2024-11-04', 'Food'),
+('Gym Membership', 25.00, '2024-11-02', 'Health'),
+('Fuel', 60.00, '2024-11-06', 'Transportation'),
+('Movie Tickets', 30.00, '2024-11-07', 'Entertainment'),
+('Books', 40.00, '2024-11-01', 'Education'),
+('Clothing', 150.00, '2024-11-02', 'Shopping'),
+('Car parking', 200.00, '2024-11-10', 'Transportation');
+select expense_date,sum(expense_amount) as total_amount  from expense group by expense_date order by expense_date;
+select expense_date,sum(expense_amount) as total_amount  from expense group by expense_date;
+select sum(expense_amount) as total_expense from expense ;
+
+
+
 SELECT * FROM finance.expense;
 describe finance.expense;
 select * from finance.expense order by expense_amount desc;
