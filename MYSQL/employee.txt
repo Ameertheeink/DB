@@ -1,0 +1,30 @@
+ show databases;
+  create database demo;
+  show databases;
+  use demo;
+  create table students(std_id int primary key, std_name varchar(20) not null,std_program varchar(40) not null,std_stream varchar(40) not null);
+  show tables;
+  desc students
+  insert into students(std_id,std_name,std_program,std_stream)values(1,'ram','java','kannada');
+  select *from students;
+  select *from students where std_id=2;
+  update students set std_stream='english' where std_id=2;
+  select *from students;
+  delete from students where std_id=3;
+  select *from students;
+	  
+insert into admin values(8,'ravana','ravana@gmail.com','ravana123');
+
+create database ams;
+ create table employee(emp_id int AUTO_INCREMENT, emp_name varchar(20) not null,emp_role varchar(20),emp_branch varchar(20), primary key(emp_id));
+ insert into employee values(1,'ravana','admin','chennai');
+ 
+ insert into employee values(2,'rajesh','clerk','chennai');
+ 
+ 
+ insert into employee values(3,'Ganesh','Sales Head','chennai'),
+ insert into employee values(4,'Soniya','Manager','chennai'),
+ insert into employee values(5,'John','Floor Manager','chennai'),
+ insert into employee values(6,'Chanderkant','Supervisor','chennai'),
+ insert into employee values(7,'Bishnu','Project Manager','chennai');
+ ALTER TABLE students RENAME table students to employee;
