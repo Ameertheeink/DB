@@ -33,3 +33,20 @@ CREATE TABLE address (
         ON DELETE CASCADE -- Automatically deletes related rows
         ON UPDATE CASCADE -- Automatically updates related rows
 );
+INSERT INTO `linkedin`.`salary` (`salary`)
+VALUES
+    (50000),
+    (55000),
+    (60000),
+    (65000),
+    (70000),
+    (75000),
+    (80000),
+    (85000),
+    (90000),
+    (95000);
+	
+	SELECT * FROM linkedin.salary s;
+SELECT * FROM linkedin.salary s order by salary desc;
+select MAX(salary) from linkedin.salary s;
+select Max(salary) from linkedin.salary where salary < (select MAX(salary) from linkedin.salary s);
