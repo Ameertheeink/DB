@@ -1,0 +1,35 @@
+SELECT * FROM linkedin.person p;
+insert into linkedin.person (lastName,firstName) values("devi","Ganga");
+INSERT INTO linkedin.person (firstName, lastName) VALUES ('Amit', 'Sharma');
+INSERT INTO linkedin.person (firstName, lastName) VALUES ('Priya', 'Rao');
+INSERT INTO linkedin.person (firstName, lastName) VALUES ('Neha', 'Gupta');
+INSERT INTO linkedin.person (firstName, lastName) VALUES ('Rohan', 'Verma');
+
+SELECT * FROM linkedin.address a;
+INSERT INTO linkedin.address (personId, city, state) VALUES (2, 'Delhi', 'Delhi');
+INSERT INTO linkedin.address (personId, city, state) VALUES (3, 'Bangalore', 'Karnataka');
+INSERT INTO linkedin.address (personId, city, state) VALUES (4, 'Hyderabad', 'Telangana');
+INSERT INTO linkedin.address (personId, city, state) VALUES (5, 'Chennai', 'Tamil Nadu');
+
+select p.firstname,p.lastname,a.city,a.state from linkedin.Person p right join linkedin.address a on p.personId=a.personId;
+
+CREATE TABLE person (
+    personId INT NOT NULL AUTO_INCREMENT,
+    firstName VARCHAR(50),
+    lastName VARCHAR(50),
+    PRIMARY KEY (personId)
+);
+
+
+CREATE TABLE address (
+    addressId INT NOT NULL AUTO_INCREMENT,
+    personId INT,
+    city VARCHAR(45),
+    state VARCHAR(45),
+    PRIMARY KEY (addressId),
+    CONSTRAINT fk_person_address
+        FOREIGN KEY (personId)
+        REFERENCES person (personId)
+        ON DELETE CASCADE -- Automatically deletes related rows
+        ON UPDATE CASCADE -- Automatically updates related rows
+);
